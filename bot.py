@@ -1,12 +1,13 @@
 #15-11-2021
 #okbei
 
-from details import API_ID, API_HASH, BOT_TOKEN, ADMIN, START_IMG, START_MSG, BUTTON_1, BUTTON_2, LINK_1, LINK_2                
-from pyrogram import Client, filters
-from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, User, Message
+from details import API_ID, API_HASH, BOT_TOKEN, ADMIN, START_IMG, START_MSG, BUTTON_1, BUTTON_2, LINK_1, LINK_2, SESSION_NAME               
+from pyrogram import Client, filters, idle
+from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, InlineQuery, User, Message, InlineQueryResultArticle, \
+    InputTextMessageContent
 
 Bot = Client(
-     session_name="Find-ID-Bot",
+     session_name=SESSION_NAME,
      api_id=API_ID,
      api_hash=API_HASH,
      bot_token=BOT_TOKEN
@@ -169,4 +170,12 @@ parse_mode="markdown",
 async def id(bot, message):
     await message.reply_text(f"<b>➲ Chat ID:</b> <code>{message.chat.id}</code>")
     
-Bot.run()
+# Start Clients
+Bot.start()
+User.start()
+# Loop Clients till Disconnects
+idle()
+# After Disconnects,
+# Stop Clients
+Bot.stop()
+User.stop()
