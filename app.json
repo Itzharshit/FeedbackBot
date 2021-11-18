@@ -20,6 +20,9 @@
             "description": "You API ID from my.telegram.org",
             "value": ""
         },
+        "USER_SESSION_STRING": {
+            "description": "Get this from @StringSessionGen_Bot"
+        },
         "BOT_TOKEN": {
             "description": "Your Telegram Bot Token from @BotFather",
             "value": ""
@@ -27,6 +30,9 @@
         "ADMIN": {
             "description": "ID of ADMIN",
             "value": ""
+        },
+        "CHANNEL_ID": {
+            "description": "Channel ID for Searching Messages."
         },
         "START_IMG": {
             "description": "Telegraph Link Of Image",
